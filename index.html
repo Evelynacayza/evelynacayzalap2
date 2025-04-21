@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>LAPORAN2 EVELYNA-101</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Outfit&display=swap" rel="stylesheet">
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Monofett&family=Special+Elite&display=swap');
+
+    body {
+        font-family: 'Courier New', Courier, monospace;
+        margin: 0;
+        padding: 0;
+        transition: all 0.3s ease;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 2rem auto 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        border: 8px dotted #a4c7e2; /* tepi seperti kertas binder */
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #004a99;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #5a5a5a;
+    }
+
+    h3 {
+      cursor: pointer;
+      color: #2574c4;
+      margin-top: 1.5rem;
+    }
+
+    h3:hover {
+        text-decoration: underline;
+    }
+
+    section.content {
+      margin-bottom: 1rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #b3500f;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ------------------- IMAGE ------------------- */
+    .side-by-side-images {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      flex-wrap: wrap;
+      margin: 1em 0;
+    }
+
+    .side-by-side-images img {
+      width: 45%;
+      border: 2px dashed #999;
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    /* ------------------- MODE NEAT ------------------- */
+    body.neat {
+      background: url('bcn.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #222;
+      font-family: 'EB Garamond', serif;
+    }
+
+    body.neat h3:hover {
+        color: #003e7e;
+    }
+
+
+    /* ------------------- MODE MESSY ------------------- */
+    body.messy {
+      background: #0b0f1a;
+      font-family: 'Courier Prime', 'Lucida Console', 'Comic Sans MS', cursive;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    body.messy h3 {
+      color: #000d26;
+      background: #13294b;
+      padding: 0.3rem;
+      border-left: 6px groove #223c6b;
+      font-family: 'Monofett', cursive;
+      text-transform: uppercase;
+    }
+
+    body.messy .container {
+      background: #343845;
+      color: #0a1b50;
+      border: 2px dashed #1a1a1a;
+      padding: 3rem 2rem 1rem 4rem;
+      box-shadow: inset 0 0 20px #000;
+      font-family: 'Special Elite', cursive;
+    }
+
+    body.messy * {
+      text-shadow: 1px 1px 1px #000;
+      letter-spacing: 0.6px;
+    }
+
+    body.messy h3:hover {
+      color: #6c6e73;
+    }
+
+    body.messy table {
+      background: #1d2330;
+      color: #363f5d;
+      border: 3px solid #3a3a3a;
+    }
+
+    body.messy table th,
+    body.messy table td {
+        border: 2px solid #555;
+        background-color: #17284f !important;
+    }
+
+    body.messy .side-by-side-images img {
+      filter: blur(2px);
+      transition: filter 0.3s ease;
+    }
+
+    /* ------------------- TOGGLE BUTTON ------------------- */
+    .floating-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: none;
+      background-color: #e3effcb6;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .floating-toggle:hover {
+      background-color: #8ba4be;
+      transform: scale(1.1);
+    }
+
+    /* ------------------- TABLE ------------------- */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table thead {
+        background: #dbe9f4;
+    }
+
+    table th, table td {
+        border: 1px solid #b0c4de;
+        padding: 8px;
+        text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      font-size: 0.9rem;
+      background: none;
+      border: none;
+      box-shadow: none;
+      color: #999;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #b3500f;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    body.neat footer {
+      color: #444;
+      font-family: 'EB Garamond', serif;
+    }
+
+    body.neat footer a {
+      color: #004a99;
+    }
+
+    body.messy footer {
+      color: #1f2430; 
+      font-family: 'Special Elite', cursive;
+      text-shadow: none; 
+    }
+
+    body.messy footer a {
+      color: #2b3a55; 
+      text-decoration: none;
+    }
+
+    body.messy footer a:hover {
+      color: #3f4e6b; 
+    }
+    
+  </style>
+</head>
+
+<body class="neat">
+  <div class="container">
+    <header>
+      <h1>LAPORAN TEORI</h1>
+      <h2>Evelyna Beatrice Cayza Jelita | 202332101</h2>
+    </header>
+
+    <section class="content">
+      <h3 onclick="confirmToggle(this)">A. Menggunakan CSS dan JavaScript dalam Pemrograman Web</h3>
+      <div>
+        <blockquote>
+        <p><strong>1. Alasan Menggunakan CSS dalam Pemrograman Web :</strong></p>
+        <ul>
+          <li>Menggunakan CSS dapat memudahkan kita mengatur warna, font, ukuran, margin, padding, dan masih banyak lagi. Sehingga membuat tampilan halaman menjadi menarik.</li>
+          <li>CSS dapat mempermudah pengelolaan kode yang dimana dapat memisahkan konten (HTML) dari desain sehingga kode lebih terorganisir dan mudah dikelola.</li>
+          <li>Dengan bantuan media queries, CSS dapat membuat situs web beradaptasi dengan berbagai ukuran layar (desktop, ponsel, dan tablet).</li>
+          <li>Terdapat Framework CSS yang menyediakan komponen siap pakai guna membangun situs web yang responsif dan cepat.</li>
+        </ul>
+        </blockquote>
+        <blockquote>
+        <p><strong>2. Alasan Menggunakan JavaScript dalam Pemrograman Web :</strong></p>
+        <ul>
+          <li>Menggunakan JavaScript dapat membuat halaman web merespon aksi pengguna, seperti kita bisa klik tombolnya, input formulir, atau scroll-scroll.</li>
+          <li>JavaScript memudahkan kita memanipulasi elemen HTML langsung dari browser. Disini kita dapat menambahkan, memodifikasi, dan menghapus konton contohnya.</li>
+          <li>Dengan JavaScript kita dapat mengubah gaya CSS elemenya secara langsung sesuai interaksi pengguna.</li>
+          <li>JavaScript dapat diguankan membuat animasi yang lebih kompleks daripadi CSS.</li>
+        </ul>
+        </blockquote>
+      </div>
+
+      <h3 onclick="confirmToggle(this)">B. Integrasi CSS dan JavaScript</h3>
+      <div>
+        <p style="text-indent: 2em;">CSS digunakan untuk mendesain tampilan visual dan membuat situs yang responsif, sedangkan JavaScript menambahkan interaktivitas dan logika dinamis. Integrasi dapat dilakukan melalui :</p>
+        <ul>
+          <li><code>&lt;link&gt;</code> di bagian <code>&lt;head&gt;</code> HTML untuk file eksternal.</li>
+          <li>Inline CSS dengan atribut <code>style</code>.</li>
+          <li>Internal CSS di dalam tag <code>&lt;style&gt;</code>.</li>
+        </ul>
+      </div>
+
+      <h3 onclick="confirmToggle(this)">C. Keuntungan JavaScript dan CSS</h3>
+      <div>
+        <table border="1" cellpadding="8">
+          <thead>
+            <tr><th>JavaScript</th><th>CSS</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Menambahkan interaktivitas</td><td>Memisahkan konten dan tampilan</td></tr>
+            <tr><td>Manipulasi DOM secara dinamis</td><td>Konsistensi desain</td></tr>
+            <tr><td>Animasi/efek visual dinamis</td><td>Layout responsif dengan media queries</td></tr>
+            <tr><td>Komunikasi asinkron</td><td>Perubahan desain tanpa ubah HTML</td></tr>
+            <tr><td>Untuk web & mobile app</td><td>Kontrol tampilan elemen</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 onclick="confirmToggle(this)">D. Keuntungan Menggunakan Bootstrap</h3>
+      <div>
+        <p style="text-indent: 2em;">Bootstrap merupakan framework fron-end open-source yang mempermudah dan mempercepat proses pembuatan desain pada halaman web yang responsif, modern, dan konsisten. Beberapa keuntungan menggunakan Bootstrap :</p>
+        <ul>
+          <li>Layout fleksibel & responsif dengan sistem grid 12 kolom.</li>
+          <li>Komponen UI siap pakai seperti tombol, navigasi, modal, dsb.</li>
+          <li>Dapat dikustomisasi melalui variabel CSS.</li>
+          <li>Desain konsisten dan profesional.</li>
+          <li>Open-source dan terus berkembang.</li>
+        </ul>
+      </div>
+
+      <h3 onclick="confirmToggle(this)">E. Contoh Penggunaan Bootstrap</h3>
+      <div>
+        <p>Contoh penggunaan komponen Bootstrap dalam halaman web :</p>
+        <div class="side-by-side-images">
+          <img src="bt1.jpg" alt="Contoh Bootstrap">
+          <img src="bt2.jpg" alt="Contoh Bootstrap">
+        </div>
+        <ul>
+          <li><code>&lt;div class="card h-100"&gt;...</code> — Bootstrap Card</li>
+          <li><code>&lt;section class="row row-cols-1 row-cols-md-2 g-4"&gt;</code> — Grid System</li>
+          <li><code>&lt;a href="#" class="btn btn-outline-primary btn-sm"&gt;Beli Sekarang&lt;/a&gt;</code> — Buttons</li>
+          <li><code>&lt;main class="container py-5"&gt;</code> — Utility Class</li>
+          <li><code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</code> — Menggunakan CDN Bootstrap</li>
+        </ul>
+        <p>Dengan Bootstrap, kita bisa membuat halaman yang responsive, hemat waktu, dan terlihat profesional tanpa harus menulis CSS dari awal.</p>
+      </div>
+    </section>
+  </div>
+
+    <!-- Tombol Lingkaran Melayang -->
+    <button onclick="toggleStyle()" id="toggleButton" class="floating-toggle" title="Ganti Tampilan">🌞</button>
+
+    <script>
+      function confirmToggle(header) {
+        const content = header.nextElementSibling;
+        const confirmHide = confirm("Apakah Anda ingin menyembunyikan bagian ini?");
+        if (confirmHide) {
+          content.classList.toggle("hidden");
+        }
+      }
+  
+      function toggleStyle() {
+        const body = document.body;
+        const button = document.getElementById("toggleButton");
+  
+        body.classList.toggle("neat");
+        body.classList.toggle("messy");
+  
+        if (body.classList.contains("messy")) {
+          button.textContent = "🌙";
+        } else {
+          button.textContent = "🌞";
+        }
+      }
+    </script>
+  
+    <footer>
+      <p>Created &copy; 2025 by <a href="https://laporan.evelyna" target="_blank">Laporan2 Pemrograman Web Evelyna101</a></p>
+    </footer>  
+  </body>
+  </html>
+  
